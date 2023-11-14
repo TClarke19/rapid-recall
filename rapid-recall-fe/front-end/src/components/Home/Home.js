@@ -1,6 +1,9 @@
+import React from "react";
+import React from "bootstrap";
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Corrected import
+import { jwtDecode } from 'jwt-decode'; 
+
 
 const Home = () => {
     const navigate = useNavigate();
@@ -23,15 +26,16 @@ const Home = () => {
 
     return (
         <div>
+            <nav>
+                <Link to="/">Home</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/logout">Logout</Link>
+            </nav>
+            <h1>Home page</h1>
+            <Button variant="primary">Add Project</Button>{' '}
+            <Button variant="danger">Delete Project</Button>{' '}
             <h1>Welcome to the Home Page</h1>
             {userInfo && (
-                <div>
-                  <nav>
-                      <Link to="/">Home</Link>
-                      <Link to="/projects">Projects</Link>
-                  </nav>
-                  <h1>Home page</h1>
-                </div>
                 <div>
                     <h2>User Information</h2>
                     <img src={userInfo.picture} alt={`${userInfo.name}'s profile`} />
