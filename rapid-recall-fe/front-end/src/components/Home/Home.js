@@ -26,6 +26,13 @@ const Home = () => {
             <h1>Welcome to the Home Page</h1>
             {userInfo && (
                 <div>
+                  <nav>
+                      <Link to="/">Home</Link>
+                      <Link to="/projects">Projects</Link>
+                  </nav>
+                  <h1>Home page</h1>
+                </div>
+                <div>
                     <h2>User Information</h2>
                     <img src={userInfo.picture} alt={`${userInfo.name}'s profile`} />
                     <p>Name: {userInfo.name}</p>
@@ -38,4 +45,3 @@ const Home = () => {
 };
 
 export default Home;
-
