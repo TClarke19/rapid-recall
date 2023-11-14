@@ -1,8 +1,28 @@
 import React from "react";
 import React from "bootstrap";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode'; 
+
 
 const Home = () => {
-    //React code
+    const navigate = useNavigate();
+    const [userInfo, setUserInfo] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            navigate('/');
+            return;
+        }
+
+        try {
+            const decoded = jwtDecode(token);
+            setUserInfo(decoded.user);
+        } catch (error) {
+            console.error('Error decoding token:', error);
+        }
+    }, [navigate]);
 
     return (
         <div>
@@ -14,8 +34,18 @@ const Home = () => {
             <h1>Home page</h1>
             <Button variant="primary">Add Project</Button>{' '}
             <Button variant="danger">Delete Project</Button>{' '}
+            <h1>Welcome to the Home Page</h1>
+            {userInfo && (
+                <div>
+                    <h2>User Information</h2>
+                    <img src={userInfo.picture} alt={`${userInfo.name}'s profile`} />
+                    <p>Name: {userInfo.name}</p>
+                    <p>Email: {userInfo.email}</p>
+                    {/* Render other user details */}
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
