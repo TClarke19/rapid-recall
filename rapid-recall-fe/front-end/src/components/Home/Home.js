@@ -1,6 +1,7 @@
 import React from "react";
-import React from "bootstrap";
-import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode'; 
 
@@ -32,9 +33,11 @@ const Home = () => {
                 <Link to="/logout">Logout</Link>
             </nav>
             <h1>Home page</h1>
-            <Button variant="primary">Add Project</Button>{' '}
-            <Button variant="danger">Delete Project</Button>{' '}
             <h1>Welcome to the Home Page</h1>
+            <>
+                <Button variant="primary">Add Project</Button>{' '}
+                <Button variant="danger">Delete Project</Button>{' '}
+            </>
             {userInfo && (
                 <div>
                     <h2>User Information</h2>

@@ -1,6 +1,9 @@
 // frontend/src/components/projects/Project_Dash.js
 
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+
 
 const ProjectDash = () => {
     return (
@@ -13,11 +16,13 @@ const ProjectDash = () => {
             <h1>Projects</h1>
             <Button variant="primary">Add Card</Button>{' '}
             <Button variant="danger">Delete Card</Button>{' '}
-        </div>
-        <div>
             <h1>Project Dashboard</h1>
             {/* Project dashboard content goes here */}
         </div>
+        
+        
+            
+        
     );
 };
 
