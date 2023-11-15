@@ -1,3 +1,4 @@
+import React from 'react';
 function Flashcard({ flashcard }) {
     const [showAnswer, setShowAnswer] = React.useState(false);
   

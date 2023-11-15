@@ -16,8 +16,9 @@ const Navbar = () => {
 
     return (
         <nav>
-            <Link to="/home">Home</Link>
-            <Link to="/projects">Projects</Link>
+            <Link to="/home">Home</Link> |
+            <Link to="/projects">View Projects</Link> |
+            <Link to="/project_dashboard">Project Dashboard</Link> |
             <button onClick={handleLogout}>Logout</button> {/* Logout Button */}
         </nav>
     );

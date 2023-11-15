@@ -2,21 +2,21 @@
 
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 
 const ProjectDash = () => {
     return (
        <div>
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/projects">Projects</Link>
-                <Link to="/logout">Logout</Link>
+                {/* <Link to="/">Home</Link>*/}
+                {/* <Link to="/projects">Projects</Link>*/}
+                {/* <Link to="/logout">Logout</Link>*/}
             </nav>
-            <h1>Projects</h1>
+           <h1>Project Dashboard</h1>
             <Button variant="primary">Add Card</Button>{' '}
             <Button variant="danger">Delete Card</Button>{' '}
-            <h1>Project Dashboard</h1>
+
             {/* Project dashboard content goes here */}
         </div>
         
