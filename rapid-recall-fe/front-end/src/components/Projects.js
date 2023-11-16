@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from "react";
 import Button from 'react-bootstrap/Button';
+//import Project from 'Project';
 
 function Projects({ projects = [] }) {
   return (

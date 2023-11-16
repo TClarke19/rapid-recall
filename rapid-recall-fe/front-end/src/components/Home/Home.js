@@ -4,6 +4,7 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import Navbar from './Navbar';
 
 
 const Home = () => {
@@ -27,6 +28,7 @@ const Home = () => {
 
     return (
         <div>
+            <Navbar />
             <nav>
                 {/*<Link to="/">Home</Link>*/}
                 {/*<Link to="/projects">Projects</Link>*/}
