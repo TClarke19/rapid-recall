@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Login = () => {
 
     return (
         <div>
-            <button onClick={handleLogin}>Login with Google</button>
+            <Button variant="success" onClick={handleLogin}>Login with Google</Button>
         </div>
     );
 };
