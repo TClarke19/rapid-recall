@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import { AuthContext } from '../contexts/AuthContext';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,10 +8,11 @@ import Navbar from 'react-bootstrap/Navbar';
 const CustomNavbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { logout } = useContext(AuthContext);
 
     const handleLogout = () => {
-        localStorage.removeItem('token');  // Remove the token from local storage
-        navigate('/');  // Redirect to the login page
+        logout();
+        navigate('/');
     };
 
     if (location.pathname === '/') {

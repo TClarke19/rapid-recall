@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import Login from './components/Login';
 import Home from './components/Home/Home';
 import ProjectDash from './components/Projects/Project_Dash';
@@ -11,14 +12,16 @@ import Project from './components/Project';
 function App() {
   return (
       <Router>
-          <CustomNavbar />
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-            <Route path="/project_dashboard" element={<ProjectDash />} />
-            <Route path="/projects" element={<Projects />} />
-          //<Route path="/projects/:id" component={Project} /> // TODO: move route to project dashboard page
-        </Routes>
+          <AuthProvider>
+              <CustomNavbar />
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+                <Route path="/project_dashboard" element={<ProjectDash />} />
+                <Route path="/projects" element={<Projects />} />
+              //<Route path="/projects/:id" component={Project} /> // TODO: move route to project dashboard page
+            </Routes>
+          </AuthProvider>
       </Router>
   );
 }

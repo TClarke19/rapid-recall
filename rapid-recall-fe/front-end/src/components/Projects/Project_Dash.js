@@ -1,12 +1,22 @@
 // frontend/src/components/projects/Project_Dash.js
 
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 //import Navbar from '../Navbar';
 
 
 const ProjectDash = () => {
+    const navigate = useNavigate();
+    const { isAuthenticated } = useContext(AuthContext); // Use AuthContext
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            navigate('/'); // Redirect to login if not authenticated
+        }
+    }, [navigate, isAuthenticated]);
+
     return (
        <div>
            {/*<Navbar />
@@ -21,10 +31,6 @@ const ProjectDash = () => {
 
             {/* Project dashboard content goes here */}
         </div>
-        
-        
-            
-        
     );
 };
 
