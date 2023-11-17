@@ -4,7 +4,7 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import Navbar from '../Navbar';
+//import Navbar from '../Navbar';
 
 
 const Home = () => {
@@ -28,12 +28,12 @@ const Home = () => {
 
     return (
         <div>
-            <Navbar />
+            {/*<Navbar />
             <nav>
-                {/*<Link to="/">Home</Link>*/}
-                {/*<Link to="/projects">Projects</Link>*/}
-                {/*<Link to="/logout">Logout</Link>*/}
-            </nav>
+                <Link to="/">Home</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/logout">Logout</Link>
+            </nav>*/}
             <h1>Home page</h1>
             {/*<h1>Welcome to the Home Page</h1>*/}
             {/*<>

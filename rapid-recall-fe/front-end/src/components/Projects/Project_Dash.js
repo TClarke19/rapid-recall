@@ -3,14 +3,14 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import Navbar from '../Navbar';
+//import Navbar from '../Navbar';
 
 
 const ProjectDash = () => {
     return (
        <div>
-            <Navbar />
-            {/* <nav>
+           {/*<Navbar />
+             <nav>
                 { <Link to="/">Home</Link> }
                 { <Link to="/projects">Projects</Link> }
                 { <Link to="/logout">Logout</Link> }
