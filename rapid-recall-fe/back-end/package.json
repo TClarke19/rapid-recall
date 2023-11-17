@@ -5,6 +5,7 @@
     "googleapis": "^128.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.2.0",
+    "mongoose": "^8.0.1",
     "react-bootstrap": "^2.9.1"
   },
   "devDependencies": {

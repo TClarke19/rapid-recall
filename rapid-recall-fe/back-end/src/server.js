@@ -1,3 +1,4 @@
+const client = require('./database/rapid-recall-db')
 require('dotenv').config();
 const express = require('express');
 const { google } = require('googleapis');
@@ -10,6 +11,14 @@ const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_SECRET,
     "http://localhost:3001/api/google/oauth"
 );
+
+app.get('/api/test', (req, res) => {
+    const collection = client.db().collection("grades")
+    collection.find({}) .toArray().then((documents) => {
+        console.log(documents)
+    })
+    res.json({message:"test"})
+})
 
 // Redirect to Google Authentication URL
 app.get('/api/google/login', (req, res) => {
