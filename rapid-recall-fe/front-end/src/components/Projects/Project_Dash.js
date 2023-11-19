@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import Button from 'react-bootstrap/Button';
-//import Navbar from '../Navbar';
+import CustomNavbar from '../Navbar';
 
 
 const ProjectDash = () => {
@@ -19,17 +19,17 @@ const ProjectDash = () => {
 
     return (
        <div>
-           {/*<Navbar />
+           <CustomNavbar />
              <nav>
                 { <Link to="/">Home</Link> }
                 { <Link to="/projects">Projects</Link> }
                 { <Link to="/logout">Logout</Link> }
-            </nav> */}
+            </nav> 
            <h1>Project Dashboard</h1>
             <Button variant="primary">Add Card</Button>{' '}
             <Button variant="danger">Delete Card</Button>{' '}
 
-            {/* Project dashboard content goes here */}
+            {/* Project dashboard content goes here (this will be from the Projects component)*/}
         </div>
     );
 };

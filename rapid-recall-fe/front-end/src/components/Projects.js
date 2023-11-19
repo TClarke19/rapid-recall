@@ -24,6 +24,7 @@ function Projects({ projects = [] }) {
           <h1>Projects</h1>
         <Button variant="primary">Add Project</Button>{' '}
         <Button variant="danger">Delete Project</Button>{' '}
+        {/* Logged in user's projects will get retrieved from the database and be displayed here */}
       </>
     </div>
   );
