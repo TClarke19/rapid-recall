@@ -1,7 +1,7 @@
 // frontend/src/components/projects/Project_Dash.js
 
 import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import Button from 'react-bootstrap/Button';
 import CustomNavbar from '../Navbar';
