@@ -20,7 +20,7 @@ function App() {
               <Route path="/home" element={<Home />} />
                 <Route path="/project_dashboard" element={<ProjectDash />} />
                 <Route path="/projects" element={<Projects />} />
-              //<Route path="/projects/:id" component={Project} /> // TODO: move route to project dashboard page
+                <Route path="/projects/:id" element={<Project />} /> 
             </Routes>
           </AuthProvider>
       </Router>
