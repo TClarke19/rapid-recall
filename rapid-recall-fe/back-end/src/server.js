@@ -12,13 +12,17 @@ const oauth2Client = new google.auth.OAuth2(
     "http://localhost:3001/api/google/oauth"
 );
 
-app.get('/api/test', (req, res) => {
-    const collection = client.db().collection("grades")
-    collection.find({}) .toArray().then((documents) => {
-        console.log(documents)
-    })
-    res.json({message:"test"})
-})
+app.get('/api/test', async (req, res) => {
+    try {
+        const collection = client.db().collection("grades")
+        const documents = await collection.find({}).toArray();
+        console.log(documents);
+        res.json(documents);
+    } catch (error) {
+        console.error('Error fetching data from database: ', error);
+        res.status(500).send('Internal Server Error');
+    } 
+});
 
 // Redirect to Google Authentication URL
 app.get('/api/google/login', (req, res) => {
