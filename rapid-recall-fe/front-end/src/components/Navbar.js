@@ -30,7 +30,7 @@ const CustomNavbar = () => {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
-                        <Nav.Link as={Link} to="/project_dashboard">Project Dashboard</Nav.Link>
+                        {/* <Nav.Link as={Link} to="/project_dashboard">Project Dashboard</Nav.Link> */}
                     </Nav>
                     <button onClick={handleLogout}>Logout</button>
                 </Navbar.Collapse>

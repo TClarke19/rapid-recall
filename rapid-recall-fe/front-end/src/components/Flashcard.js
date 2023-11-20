@@ -11,7 +11,7 @@ function Flashcard({ flashcard }) {
           {showAnswer && <div>{flashcard.answer}</div>} */}
           <Card>
             <Card.Header>
-              <Accordion.Toggle as={Button} eventkey="0">
+              <Accordion.Toggle as={Button} eventKey="0">
                 {/* Flashcard question goes here */}
                 <div>{flashcard.question}</div>
               </Accordion.Toggle>
