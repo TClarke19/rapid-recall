@@ -15,13 +15,12 @@ function App() {
       <Router>
           <AuthProvider>
               <CustomNavbar />
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Home />} />
-                <Route path="/project_dashboard" element={<ProjectDash />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:id" element={<Project />} /> 
-            </Routes>
+              <Routes>
+                  <Route path="/" element={<Login />} />
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/project/:projectId" element={<ProjectDash />} />
+              </Routes>
           </AuthProvider>
       </Router>
   );
