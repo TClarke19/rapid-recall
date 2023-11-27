@@ -7,7 +7,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
-import logo192 from '../logo192.png'; 
+import learning_one from '../learning_one.jpg';
+import learning_two from '../learning_two.jpg';
+import learning_three from '../learning_three.png';
 import '../App.css'
 
 const Login = () => {
@@ -29,7 +31,7 @@ const Login = () => {
 
     return (
         <>
-            <Container>
+            <Container className='d-flex flex columns justify-content-center align-items-center' style={{minHeight:'100vh'}}>
                 <Row className="justify-content-md-center">
                     <Col xs lg="6">
                         <Card className="text-center">
@@ -45,32 +47,33 @@ const Login = () => {
                         </Card>
                     </Col>
                 </Row>
+                <Carousel interval={2000}>
+                    <Carousel.Item>
+                        <img src={learning_one} alt="First slide" style={{ width: '700px', height: 'auto' }}/>
+                        <Carousel.Caption style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                        <h3>An app to help to prepare!</h3>
+                        <p>Save your projects, and alwasy be prepared!</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={learning_two} alt="Second slide" style={{ width: '700px', height: 'auto' }}/>
+                        <Carousel.Caption style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                        <h3>Keep track of all your projects!</h3>
+                        <p>All in one convenient place!</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={learning_three} alt="Third slide" style={{ width: '700px', height: 'auto' }}/>
+                        <Carousel.Caption style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                        <h3>Everything is saved to your account!</h3>
+                        <p>
+                            Simply log in with your google account, and enjoy!
+                        </p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
             </Container>
-            <Carousel>
-                <Carousel.Item>
-                    <img src={logo192} alt="First slide" />
-                    <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={logo192} alt="Second slide" />
-                    <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={logo192} alt="Third slide" />
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            
         </>
     );
 };
