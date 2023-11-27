@@ -3,7 +3,7 @@ body {
   
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1000px) {
   .card {
     position: absolute;
     top: 0;
