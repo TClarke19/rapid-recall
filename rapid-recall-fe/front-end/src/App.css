@@ -1,6 +1,8 @@
 body {
-  background-color: #0db5bbc5
-  
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 @media (max-width: 1000px) {
