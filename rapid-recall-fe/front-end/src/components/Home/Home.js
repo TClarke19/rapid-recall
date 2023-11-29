@@ -55,12 +55,12 @@ const Home = () => {
         </Col>
         </Row>
 
-    <Carousel interval={2000}>
+    <Carousel interval={5000}>
                     <Carousel.Item>
                         <img src={home_one} alt="First slide" style={{ width: '700px', height: 'auto' }}/>
                         <Carousel.Caption style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
-                        <h3>An app to help to prepare!</h3>
-                        <p>Save your projects, and alwasy be prepared!</p>
+                        <h3>You can make projects based on a variety of subjects</h3>
+                        <p>You can make them based on math, science, history, biology and more!</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
