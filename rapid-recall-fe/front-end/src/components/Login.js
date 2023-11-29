@@ -47,12 +47,12 @@ const Login = () => {
                         </Card>
                     </Col>
                 </Row>
-                <Carousel interval={2000}>
+                <Carousel interval={5000}>
                     <Carousel.Item>
                         <img src={learning_one} alt="First slide" style={{ width: '700px', height: 'auto' }}/>
                         <Carousel.Caption style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
                         <h3>An app to help to prepare!</h3>
-                        <p>Save your projects, and alwasy be prepared!</p>
+                        <p>Save your projects, and always be prepared!</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
