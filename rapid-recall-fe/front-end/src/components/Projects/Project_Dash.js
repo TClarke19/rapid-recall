@@ -94,7 +94,7 @@ const ProjectDash = () => {
 
     return (
         <Container>
-            <Card>
+            <Card className="my-3">
                 <Card.Header as="h5">{`Flashcard`}</Card.Header>
                 <Card.Body>
                     {flashcards.length === 0 || currentFlashcardIndex === -1 ? (

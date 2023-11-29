@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
+import { Container, Button, Table, Form, Row, Col, Card } from 'react-bootstrap';
 //import Project from 'Project';
 
 
@@ -77,46 +77,65 @@ function Projects() {
       { id: 3, name: 'Technology' },
     ];*/
 
-  return (
-    <div>
-        <input
-            type="text"
-            placeholder="Project Name"
-            value={projectName}
-            onChange={(e) => setProjectName(e.target.value)}
-        />
-        <input
-            type="text"
-            placeholder="Project Description"
-            value={projectDescription}
-            onChange={(e) => setProjectDescription(e.target.value)}
-        />
-        <button onClick={addProject}>Add Project</button>
+    return (
+        <Container>
+            <Card className="my-3">
+                <Card.Header as="h5">Projects</Card.Header>
+                <Card.Body>
+                    <Form>
+                        <Row>
+                            <Col md={6}>
+                                <Form.Group className="mb-3">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Project Name"
+                                        value={projectName}
+                                        onChange={(e) => setProjectName(e.target.value)}
+                                    />
+                                </Form.Group>
+                            </Col>
+                            <Col md={6}>
+                                <Form.Group className="mb-3">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Project Description"
+                                        value={projectDescription}
+                                        onChange={(e) => setProjectDescription(e.target.value)}
+                                    />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                        <Button variant="primary" onClick={addProject}>Add Project</Button>
+                    </Form>
+                </Card.Body>
+            </Card>
 
-        <table>
-            <thead>
-            <tr>
-                <th>Project Name</th>
-                <th>Project Description</th>
-                <th>Delete Project</th>
-            </tr>
-            </thead>
-            <tbody>
-            {projects.map((project, index) => (
-                <tr key={project._id}>
-                    <td>
-                        <Link to={`/project/${project._id}`}>{project.name}</Link>
-                    </td>
-                    <td>{project.description}</td>
-                    <td>
-                        <button onClick={() => deleteProject(project._id, index)}>Delete Project</button>
-                    </td>
+            <Table striped bordered hover className="mt-3">
+                <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Project Description</th>
+                    <th>Delete Project</th>
                 </tr>
-            ))}
-            </tbody>
-        </table>
-    </div>
-  );
+                </thead>
+                <tbody>
+                {projects.map((project) => (
+                    <tr key={project._id}>
+                        <td>
+                            <Link to={`/project/${project._id}`}>{project.name}</Link>
+                        </td>
+                        <td>{project.description}</td>
+                        <td>
+                            <Button variant="danger" onClick={() => deleteProject(project._id)}>
+                                Delete Project
+                            </Button>
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </Table>
+        </Container>
+    );
 }
 
 export default Projects;

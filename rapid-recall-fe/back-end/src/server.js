@@ -11,10 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB Compass
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB', err));
 
@@ -60,7 +57,7 @@ const oauth2Client = new google.auth.OAuth2(
     "http://localhost:3001/api/google/oauth"
 );
 
-app.get('/api/test', async (req, res) => {
+/*app.get('/api/test', async (req, res) => {
     try {
         const collection = client.db().collection("grades")
         const documents = await collection.find({}).toArray();
@@ -70,7 +67,7 @@ app.get('/api/test', async (req, res) => {
         console.error('Error fetching data from database: ', error);
         res.status(500).send('Internal Server Error');
     } 
-});
+});*/
 
 // Redirect to Google Authentication URL
 app.get('/api/google/login', (req, res) => {
