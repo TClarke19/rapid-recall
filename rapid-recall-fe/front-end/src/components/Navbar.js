@@ -4,6 +4,7 @@ import { AuthContext } from '../contexts/AuthContext';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import logo from './Home/logo_transparent_black.png';
 
 const CustomNavbar = () => {
     const navigate = useNavigate();
@@ -24,7 +25,14 @@ const CustomNavbar = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand as={Link} to="/home">Rapid [Recall]</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/home">
+                    <img
+                        src={logo}
+                        height="30" // Adjust the size as needed
+                        className="d-inline-block align-top"
+                        alt="Rapid Recall Logo"
+                    />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
