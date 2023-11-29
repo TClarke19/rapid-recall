@@ -6,6 +6,15 @@ body {
 }
 
 @media (max-width: 1000px) {
+  .info-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+
   .card {
     position: absolute;
     top: 0;
