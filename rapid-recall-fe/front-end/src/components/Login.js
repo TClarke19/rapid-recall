@@ -43,6 +43,7 @@ const Login = () => {
                                     in projects! Add or delete your projects and flashcards to organize your workspace!
                                 </Card.Text>
                                 <Button variant="success" onClick={handleLogin}>Login with Google</Button>
+                                <Button variant='link' href='https://www.google.com/account/about/'>Don't have a Google account? Sign up!</Button>
                             </Card.Body>
                         </Card>
                     </Col>
