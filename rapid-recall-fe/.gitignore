@@ -9,6 +9,9 @@
 # Env files
 /back-end/.env
 
+
+/back-end/build
+/front-end/build
 # testing
 /coverage
 
