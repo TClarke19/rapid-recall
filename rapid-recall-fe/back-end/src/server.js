@@ -1,19 +1,41 @@
-const client = require('./database/rapid-recall-db')
-require('dotenv').config();
-const express = require('express');
+import path from 'path';
+//const client = require('./database/rapid-recall-db')
+//require('dotenv').config();
+import 'dotenv/config';
+import express from 'express';
+import { google} from 'googleapis';
+import jwt from 'jsonwebtoken';
+const app = express();
+import mongoose from 'mongoose';
+import cors from 'cors';
+import { fileURLToPath } from 'url';
+
+/*const express = require('express');
 const { google } = require('googleapis');
 const jwt = require('jsonwebtoken');
 const app = express();
 const mongoose = require('mongoose');
-const cors = require('cors');
+const cors = require('cors');*/
 
 app.use(cors());
 app.use(express.json());
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.get(/^(?!\/api).+/, (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+})
+
 // Connect to MongoDB Compass
-mongoose.connect(process.env.MONGODB_URI)
+/*mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Could not connect to MongoDB', err));
+    .catch(err => console.error('Could not connect to MongoDB', err));*/
+
+// Connect to MongoDB Atlas
+mongoose.connect(process.env.MONGODB_ATLAS_URI)
+    .then(() => console.log('Connected to MongoDB Atlas'))
+    .catch(err => console.error('Could not connect to MongoDB Atlas', err));
 
 // Define the User model
 const userSchema = new mongoose.Schema({
