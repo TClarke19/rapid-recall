@@ -23,9 +23,12 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use(express.static(path.join(__dirname, '../build')));
+
 app.get(/^(?!\/api).+/, (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 })
+
 
 // Connect to MongoDB Compass
 /*mongoose.connect(process.env.MONGODB_URI)
@@ -208,7 +211,7 @@ app.get('/api/google/oauth', async (req, res) => {
     });
 
     // Redirect to frontend with token
-    res.redirect(`http://localhost:3000/?token=${token}`);
+    res.redirect(`/?token=${token}`);
 });
 
 // Start server
