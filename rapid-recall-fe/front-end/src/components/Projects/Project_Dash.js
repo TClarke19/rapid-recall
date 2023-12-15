@@ -24,7 +24,7 @@ const ProjectDash = () => {
     useEffect(() => {
         const fetchFlashcards = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/flashcards/${projectId}`, {
+                const response = await axios.get(`https://rapid-recall.online/api/flashcards/${projectId}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -67,7 +67,7 @@ const ProjectDash = () => {
     const handleAddFlashcard = async () => {
         try {
             const newFlashcard = { front: newFlashcardFront, back: newFlashcardBack, projectId };
-            const response = await axios.post('http://localhost:3001/api/flashcards', newFlashcard);
+            const response = await axios.post('https://rapid-recall.online/api/flashcards', newFlashcard);
             setFlashcards([...flashcards, response.data]);
             setNewFlashcardFront('');
             setNewFlashcardBack('');
@@ -81,7 +81,7 @@ const ProjectDash = () => {
 
     const handleDeleteFlashcard = async (flashcardId) => {
         try {
-            await axios.delete(`http://localhost:3001/api/flashcards/${flashcardId}`);
+            await axios.delete(`https://rapid-recall.online/api/flashcards/${flashcardId}`);
             const updatedFlashcards = flashcards.filter(flashcard => flashcard._id !== flashcardId);
             setFlashcards(updatedFlashcards);
             if (currentFlashcardIndex === updatedFlashcards.length) {
