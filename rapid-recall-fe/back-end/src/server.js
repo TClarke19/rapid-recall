@@ -1,25 +1,15 @@
 import path from 'path';
-//const client = require('./database/rapid-recall-db')
-//require('dotenv').config();
 import 'dotenv/config';
 import express from 'express';
 import { google} from 'googleapis';
 import jwt from 'jsonwebtoken';
-const app = express();
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import https from 'https';
 import fs from 'fs';
 
-/*const express = require('express');
-const { google } = require('googleapis');
-const jwt = require('jsonwebtoken');
 const app = express();
-const mongoose = require('mongoose');
-const cors = require('cors');*/
-
-//console.log(process);
 
 app.use(cors());
 app.use(express.json());
@@ -32,12 +22,6 @@ app.use(express.static(path.join(__dirname, '../build')));
 app.get(/^(?!\/api).+/, (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 })
-
-
-// Connect to MongoDB Compass
-/*mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Could not connect to MongoDB', err));*/
 
 // Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGODB_ATLAS_URI)
@@ -85,18 +69,6 @@ const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_SECRET,
     "https://rapid-recall.online/api/google/oauth"
 );
-
-/*app.get('/api/test', async (req, res) => {
-    try {
-        const collection = client.db().collection("grades")
-        const documents = await collection.find({}).toArray();
-        console.log(documents);
-        res.json(documents);
-    } catch (error) {
-        console.error('Error fetching data from database: ', error);
-        res.status(500).send('Internal Server Error');
-    } 
-});*/
 
 // Redirect to Google Authentication URL
 app.get('/api/google/login', (req, res) => {
@@ -218,8 +190,6 @@ app.get('/api/google/oauth', async (req, res) => {
     res.redirect(`/?token=${token}`);
 });
 
-
-
 const httpsServer = https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/rapid-recall.online/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/rapid-recall.online/fullchain.pem')}, app);
@@ -227,9 +197,3 @@ const httpsServer = https.createServer({
 httpsServer.listen(443, ()=> {
     console.log('HTTPS Server running on port 443')
 });
-
-// Start server
-/*const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});*/
