@@ -26,7 +26,7 @@ const Login = () => {
     }, [navigate, login]);
 
     const handleLogin = () => {
-        window.location.href = 'http://localhost:3001/api/google/login';
+        window.location.href = 'https://rapid-recall.online/api/google/login';
     };
 
     return (

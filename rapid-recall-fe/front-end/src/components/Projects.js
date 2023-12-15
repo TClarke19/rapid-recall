@@ -25,7 +25,7 @@ function Projects() {
 
     const fetchProjects = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/projects', {
+            const response = await axios.get('https://rapid-recall.online/api/projects', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -38,7 +38,7 @@ function Projects() {
 
     const deleteProject = async (projectId) => {
         try {
-            await axios.delete(`http://localhost:3001/api/projects/${projectId}`, {
+            await axios.delete(`https://rapid-recall.online/api/projects/${projectId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -53,7 +53,7 @@ function Projects() {
     const addProject = async () => {
         try {
             const newProject = { name: projectName, description: projectDescription };
-            const response = await axios.post('http://localhost:3001/api/projects', newProject, {
+            const response = await axios.post('https://rapid-recall.online/api/projects', newProject, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

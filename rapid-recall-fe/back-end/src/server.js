@@ -9,6 +9,8 @@ const app = express();
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
+import https from 'https';
+import fs from 'fs';
 
 /*const express = require('express');
 const { google } = require('googleapis');
@@ -16,6 +18,8 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');*/
+
+//console.log(process);
 
 app.use(cors());
 app.use(express.json());
@@ -79,7 +83,7 @@ const Flashcard = mongoose.model('Flashcard', flashcardSchema);
 const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    "http://localhost:3001/api/google/oauth"
+    "https://rapid-recall.online/api/google/oauth"
 );
 
 /*app.get('/api/test', async (req, res) => {
@@ -214,8 +218,18 @@ app.get('/api/google/oauth', async (req, res) => {
     res.redirect(`/?token=${token}`);
 });
 
+
+
+const httpsServer = https.createServer({
+    key: fs.readFileSync('/etc/letsencrypt/live/rapid-recall.online/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/rapid-recall.online/fullchain.pem')}, app);
+
+httpsServer.listen(443, ()=> {
+    console.log('HTTPS Server running on port 443')
+});
+
 // Start server
-const PORT = process.env.PORT || 3001;
+/*const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-});
+});*/
